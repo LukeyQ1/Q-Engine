@@ -11,7 +11,7 @@
 #include "Q_stdinc.h"
 #include "Texture.hpp"
 
-namespace QEngine {
+namespace QEngine{
 
     class Sprite{
 
@@ -22,14 +22,18 @@ namespace QEngine {
         void init(int x, int y, int width, int height, const std::string& texturePath);
         void init(const std::string& texturePath);
 
-        Texture getTexture();
         void render(int x, int y, float scale = 1.0f, double angle = 0, Point* centerRotate = NULL, SDL_RendererFlip flip = SDL_FLIP_NONE);
+
+        Texture* getTexture();
+        int getWidth();
+        int getHeight();
 
     private:
         int x_;
         int y_;
         int width_;
         int height_;
-        Texture texture_;
+        Texture* texture_;
     };
+
 }

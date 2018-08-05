@@ -68,12 +68,21 @@ void InputManager::setMouseState(){
     mouseState_ = true;
 }
 
+glm::vec2 InputManager::getMousePos(){
+    int x, y;
+    SDL_GetMouseState(&x, &y);
+    return glm::vec2((float)x, (float)y);
+}
 bool InputManager::getMousePos(int& x, int& y){
     SDL_GetMouseState(&x, &y);
     if(mouseState_){
         return true;
     }
     return false;
+}
+
+glm::vec2 InputManager::getMouseScroll(){
+    return glm::vec2(mouseScrollX_, mouseScrollY_);
 }
 bool InputManager::getMouseScroll(int& x, int &y){
     x = mouseScrollX_;

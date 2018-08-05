@@ -13,11 +13,13 @@
 #include "Window.hpp"
 #include "Renderer.hpp"
 #include "Texture.hpp"
+#include "Font.hpp"
 
 #include "InputManager.hpp"
 #include "EventManager.hpp"
 #include "IOManager.hpp"
 #include "ResourceManager.hpp"
+#include "FontManager.hpp"
 #include "AudioManager.hpp"
 
 #include "Camera.hpp"
@@ -25,9 +27,11 @@
 #include "spriteGroup.hpp"
 
 #include "Basics.hpp"
+#include "Primitive.hpp"
 #include "Timer.hpp"
 
-#include "physics/physics.h"
+#include "physics/Physics.h"
+
 
 using namespace QEngine;
 

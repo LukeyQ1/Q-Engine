@@ -8,6 +8,8 @@
 
 #include "Q-Engine.h"
 
+using namespace QEngine;
+
 bool init(){
 
     //Initialize SDL

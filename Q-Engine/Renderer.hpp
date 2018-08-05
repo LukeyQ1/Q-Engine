@@ -10,8 +10,9 @@
 
 #include "Q_stdinc.h"
 #include "Window.hpp"
+#include "Basics.hpp"
 
-namespace QEngine {
+namespace QEngine{
 
     class Window;
 
@@ -27,7 +28,8 @@ namespace QEngine {
             void clear();
             void update();
 
-            void setColour(Uint8 red, Uint8 green, Uint8 blue, Uint8 alpha);
+            static void setColor(Uint8 red, Uint8 green, Uint8 blue, Uint8 alpha);
+            static void setColor(ColorRGBA color);
 
             static SDL_Renderer* SDL();
 

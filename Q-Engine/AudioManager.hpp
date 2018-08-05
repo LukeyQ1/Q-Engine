@@ -13,6 +13,7 @@
 namespace QEngine{
 
     class SoundEffect{
+
         public:
             SoundEffect();
             SoundEffect(Mix_Chunk* effect);
@@ -45,23 +46,21 @@ namespace QEngine{
 
     class AudioManager {
         public:
-        AudioManager();
-        ~AudioManager();
+            AudioManager();
+            ~AudioManager();
 
+            bool init();
+            void quit();
 
-        bool init();
-        void quit();
+            bool loadSoundEffect(const std::string& path);
+            bool loadMusic(const std::string& path);
 
-        bool loadSoundEffect(const std::string& path);
-        bool loadMusic(const std::string& path);
-
-        static SoundEffect getSoundEffect(const std::string& path);
-        static Music getMusic(const std::string& path);
-
+            static SoundEffect getSoundEffect(const std::string& path);
+            static Music getMusic(const std::string& path);
 
         private:
             static std::unordered_map<std::string, Mix_Chunk*> effectMap_;
             static std::unordered_map<std::string, Mix_Music*> musicMap_;
-
     };
+
 }

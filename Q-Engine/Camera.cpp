@@ -13,6 +13,7 @@ using namespace QEngine;
 Camera::Camera(){}
 Camera::~Camera(){}
 
+
 glm::vec2 Camera::position_ = glm::vec2(0.0f, 0.0f);
 float Camera::scale_ = 1.0f;
 int Camera::screenWidth_;
@@ -25,7 +26,6 @@ void Camera::init(int screenWidth, int screenHeight){
 
     position_ = glm::vec2(screenWidth/2, screenHeight/2);
 }
-
 
 glm::vec2 Camera::screenToWorld(glm::vec2 screenCoords){
     screenCoords -= glm::vec2 (screenWidth_/2, screenHeight_/2);  // Center Screen
@@ -53,6 +53,16 @@ void Camera::worldToScreen(int& x, int& y){
     y = newCoords.y;
 }
 
+void Camera::moveCamera(const glm::vec2& translate){
+    position_ += translate;
+}
+void Camera::setPosition(const glm::vec2& newPosition) {
+    position_ = newPosition;
+}
+void Camera::setScale(float scale) {
+    scale_ = scale;
+}
+
 void Camera::scaleObject(int& w, int& h){
     float newW = w;
     float newH = h;
@@ -61,19 +71,6 @@ void Camera::scaleObject(int& w, int& h){
     w = newW;
     h = newH;
 }
-
-void Camera::moveCamera(const glm::vec2& translate){
-    position_ += translate;
-}
-
-void Camera::setPosition(const glm::vec2& newPosition) {
-    position_ = newPosition;
-}
-
-void Camera::setScale(float scale) {
-    scale_ = scale;
-}
-
 
 glm::vec2 Camera::getPosition(){
     return position_;

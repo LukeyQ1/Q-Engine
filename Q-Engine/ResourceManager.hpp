@@ -12,25 +12,23 @@
 #include "Texture.hpp"
 #include "IOManager.hpp"
 
-namespace QEngine {
+namespace QEngine{
+
     class ResourceManager{
 
-    public:
+        public:
+            ResourceManager();
+            ~ResourceManager();
 
-        ResourceManager();
-        ~ResourceManager();
+            void quit();
 
-        void quit();
+            bool loadTexture(const std::string& path, ColorRGBA colorKey = {0xFF, 0xFF, 0xFF});
 
-        bool loadTexture(const std::string& path, ColorRGBA colorKey = {0xFF, 0xFF, 0xFF});
+            static Texture* getTexture(const std::string& path);
 
-        static Texture* getTexture(const std::string& path);
-
-    private:
-        static std::unordered_map<std::string, Texture> textureMap_;
-        //music
-        //sound
-        //fonts
+        private:
+            static std::unordered_map<std::string, Texture> textureMap_;
 
     };
+
 }

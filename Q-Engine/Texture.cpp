@@ -12,9 +12,7 @@
 using namespace QEngine;
 
 Texture::Texture(){}
-
-Texture::~Texture(){
-}
+Texture::~Texture(){}
 
 bool Texture::init(SDL_Texture* texture, int width, int height){
     if(texture == NULL){
@@ -32,37 +30,7 @@ void Texture::free(){
         sdlTexture = NULL;
         imgWidth = 0;
         imgHeight = 0;
-        std::cout << "Deleted Texture" << std::endl;
     }
-}
-
-
-bool Texture::renderText(std::string textureText, TTF_Font* font, ColorRGBA textColor){
-    //Get rid of preexisting texture
-    free();
-
-    //Render text surface
-    SDL_Surface* textSurface = TTF_RenderText_Solid(font, textureText.c_str(), textColor);
-    if(textSurface != NULL){
-        //Create texture from surface pixels
-        sdlTexture = SDL_CreateTextureFromSurface(Renderer::SDL(), textSurface);
-        if(sdlTexture == NULL){
-            printf("Unable to create texture from rendered text! SDL Error: %s\n", SDL_GetError());
-        }else{
-            //Get image dimensions
-            imgWidth = textSurface->w;
-            imgHeight = textSurface->h;
-        }
-
-        //Get rid of old surface
-        SDL_FreeSurface(textSurface);
-    }
-    else{
-        printf("Unable to render text surface! SDL_ttf Error: %s\n", TTF_GetError());
-    }
-
-    //Return success
-    return sdlTexture != NULL;
 }
 
 void Texture::render(int x, int y, float scale, Rect* clip, double angle, Point* centerRotate, SDL_RendererFlip flip){

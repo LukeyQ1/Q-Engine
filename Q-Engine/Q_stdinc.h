@@ -13,9 +13,13 @@
 #include <SDL2_ttf/SDL_ttf.h>
 #include <SDL2_mixer/SDL_mixer.h>
 
+#include <glm/glm.hpp>
 
-#include <stdio.h>
+#include <cstdio>
 #include <string>
 #include <sstream>
 #include <iostream>
 #include <unordered_map>
+#include <cmath>
+#include <algorithm>
+#include <cstdlib>

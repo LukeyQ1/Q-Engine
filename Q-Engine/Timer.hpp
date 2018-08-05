@@ -10,28 +10,58 @@
 
 #include "Q_stdinc.h"
 
-namespace QEngine {
+namespace QEngine{
 
     class Timer{
-    public:
-        Timer();
 
-        void start();
-        void stop();
-        void pause();
-        void unpause();
+        public:
+            Timer();
 
-        Uint32 getTicks();
+            void start();
+            void stop();
+            void pause();
+            void unpause();
 
-        bool isStarted();
-        bool isPaused();
+            Uint32 getTicks();
 
-    private:
-        Uint32 startTicks_;
-        Uint32 pausedTicks_;
+            bool isStarted();
+            bool isPaused();
 
-        bool paused_;
-        bool started_;
+        private:
+            Uint32 startTicks_;
+            Uint32 pausedTicks_;
+
+            bool paused_;
+            bool started_;
+        };
+
+    class FpsTimer{
+
+        public:
+            static const int SAMPLE_RATE = 30;
+            static const int MAX_STEPS = 5;
+
+            FpsTimer();
+            void init(float maxFPS);
+
+            void start();
+            void update();
+            void limit();
+
+            void setMaxFps(float maxFPS);
+
+            float getCurrentFps();
+            float getDeltaTime();
+            float getMaxDeltaTime();
+
+        private:
+            float maxFps_;
+            float currentFps_ = 0.0f;
+            float fpsTime_; // Time SAMPLE_RATE frames ago
+            int frameCount_ = 0;
+
+            float startTime_;
+            float previousFrameTime_;
     };
 
 }

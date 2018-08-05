@@ -11,18 +11,20 @@
 #include "Q_stdinc.h"
 #include "Texture.hpp"
 #include "Renderer.hpp"
+#include "AudioManager.hpp"
 
-namespace QEngine {
+namespace QEngine{
 
-    class IOManager {
+    class IOManager{
 
         public:
 
-        static bool loadIMG(Texture& newTexture, const std::string& path, ColorRGBA colorKey = {0xFF,0xFF,0xFF});
+            static bool loadIMG(Texture& newTexture, const std::string& path, ColorRGBA colorKey = {0xFF,0xFF,0xFF});
+            
+            static bool loadSoundEffect(Mix_Chunk*& newEffect, const std::string& path);
+            static bool loadMusic(Mix_Music*& newMusic, const std::string& path);
 
-        //load music
-        //load sound
-        //load font
-        //load file
+            static bool loadFont(TTF_Font*& newFont, const std::string& path, int fontSize);
+
     };
 }
