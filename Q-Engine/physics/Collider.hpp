@@ -26,14 +26,19 @@ namespace QEngine{
 
         public:
             Collider(int type, const glm::vec2 &position, const glm::vec2 &size = glm::vec2(0.0f));
-
-            glm::vec2* collides(const Collider &collider) const;
-
-            void moveCollider(const glm::vec2 &translate);
+        
+            friend class Body;
+            friend class Hitscan;
+        
             glm::vec2 getCenter() const;
             glm::vec2 getMinDist() const;
-
+        
         private:
+            bool collides(const Collider &collider) const;
+
+            void moveCollider(const glm::vec2 &translate);
+            void setPosition(const glm::vec2 &position);
+
             glm::vec2 position_; // Top Left
             glm::vec2 size_; // AABB: Width, Heigth. CIRCLE: Radius, Radius.
             int type_;

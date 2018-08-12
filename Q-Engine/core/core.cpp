@@ -1,12 +1,12 @@
 //
-//  Q-Engine.cpp
+//  core.cpp
 //  Q-Engine
 //
 //  Created by Luke Quinlan on 21/07/2018.
 //  Copyright © 2018 Luke Quinlan. All rights reserved.
 //
 
-#include "Q-Engine.h"
+#include "core.h"
 
 using namespace QEngine;
 

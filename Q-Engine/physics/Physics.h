@@ -20,10 +20,10 @@ namespace QEngine{
     class Physics{
 
         public:
-            static glm::vec2 accVec(const float& force, const float& angle, const float& mass = 1){
+            static glm::vec2 forceVec(const float& force, const float& angle){
                 float rad = angle*PI/180;
-                float accX = force*mass*cos(rad);
-                float accY = force*mass*sin(rad);
+                float accX = force*cos(rad);
+                float accY = force*sin(rad);
                 return glm::vec2 (accX, accY);
             }
 

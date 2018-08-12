@@ -1,5 +1,5 @@
 //
-//  spriteGroup.hpp
+//  SpriteGroup.hpp
 //  Q-Engine
 //
 //  Created by Luke Quinlan on 27/07/2018.
@@ -13,11 +13,11 @@
 
 namespace QEngine{
 
-    class spriteGroup{
+    class SpriteGroup{
 
         public:
-            spriteGroup();
-            ~spriteGroup();
+            SpriteGroup();
+            ~SpriteGroup();
 
             Sprite getSprite(int name);
             void addSprite(Sprite newSprite, int name);

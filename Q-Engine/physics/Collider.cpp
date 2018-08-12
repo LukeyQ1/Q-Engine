@@ -14,7 +14,7 @@ using namespace QEngine;
 
 Collider::Collider(int type, const glm::vec2 &position, const glm::vec2 &size) : type_(type), position_(position), size_(size){}
 
-glm::vec2* Collider::collides(const Collider &collider) const{
+bool Collider::collides(const Collider &collider) const{
     switch(type_){
         case AABB:
             if(collider.type_ == AABB){
@@ -28,7 +28,7 @@ glm::vec2* Collider::collides(const Collider &collider) const{
                 return Collision::CIRCLE_CIRCLE(*this, collider);
             }
             if(collider.type_ == AABB){
-                return Collision::AABB_CIRCLE(*this, collider, true);
+                return Collision::AABB_CIRCLE(collider, *this, true);
             }
         default:
             return NULL;
@@ -37,6 +37,9 @@ glm::vec2* Collider::collides(const Collider &collider) const{
 
 void Collider::moveCollider(const glm::vec2 &translate){
     position_ += translate;
+}
+void Collider::setPosition(const glm::vec2 &position){
+    position_ = position;
 }
 
 glm::vec2 Collider::getCenter() const{

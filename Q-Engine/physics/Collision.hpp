@@ -16,16 +16,23 @@ namespace QEngine{
 
     class Collision{
 
-        public: // Return NULL if miss.
-            // Return Collision Depth
-            static glm::vec2* AABB_AABB(const Collider &A, const Collider &B);
-            static glm::vec2* AABB_CIRCLE(const Collider &A, const Collider &B, bool reverse = false){ return NULL; }
-            static glm::vec2* CIRCLE_CIRCLE(const Collider &A, const Collider &B);
+        public:
+            // Set Collision direction and depth
+            static bool AABB_AABB(const Collider &A, const Collider &B);
+            static bool AABB_CIRCLE(const Collider &A, const Collider &B, bool reverse = false);
+            static bool CIRCLE_CIRCLE(const Collider &A, const Collider &B);
 
-            // Return Point of Collision
-            static glm::vec2* AABB_LINE(const glm::vec2& initialPosition, const glm::vec2 &finalPosition, const Collider &A);
-            static glm::vec2* CIRCLE_LINE(const glm::vec2& initialPosition, const glm::vec2 &finalPosition, const Collider &A);
-            static glm::vec2* LINE_LINE(const glm::vec2& initialA, const glm::vec2 &finalA, const glm::vec2& initialB, const glm::vec2 &finalB);
+            // Set Collision point
+            static bool AABB_LINE(const glm::vec2& initialPosition, const glm::vec2 &finalPosition, const Collider &A);
+            static bool CIRCLE_LINE(const glm::vec2& initialPosition, const glm::vec2 &finalPosition, const Collider &A);
+            static bool LINE_LINE(const glm::vec2& initialA, const glm::vec2 &finalA, const glm::vec2& initialB, const glm::vec2 &finalB);
+
+            static glm::vec2 point;
+            static glm::vec2 depth;
+            static glm::vec2 direction;
+
+        private:
+            static void reset();
 
     };
 

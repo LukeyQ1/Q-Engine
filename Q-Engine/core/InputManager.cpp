@@ -37,7 +37,7 @@ void InputManager::releaseKey(unsigned int keyID){
     keyMap_[keyID] = false;
 }
 
-bool InputManager::isKeyDown(unsigned int keyID){
+bool InputManager::isKeyDown(keyCode keyID){
     auto it = keyMap_.find(keyID);
 
     if (it != keyMap_.end()){
@@ -45,7 +45,7 @@ bool InputManager::isKeyDown(unsigned int keyID){
     }
     return false;
 }
-bool InputManager::isKeyPressed(unsigned int keyID){
+bool InputManager::isKeyPressed(keyCode keyID){
     auto it = previouskeyMap_.find(keyID);
     bool wasDown;
     if (it != previouskeyMap_.end()){

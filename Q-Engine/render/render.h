@@ -1,5 +1,5 @@
 //
-//  Q-Engine.h
+//  render.h
 //  Q-Engine
 //
 //  Created by Luke Quinlan on 10/08/2018.
@@ -8,8 +8,9 @@
 
 #pragma once
 
-#include "Q_stdinc.h"
+#include "Font.hpp"
+#include "FontManager.hpp"
+#include "Sprite.hpp"
+#include "SpriteGroup.hpp"
 
-#include "core/core.h"
-#include "render/render.h"
-#include "physics/Physics.h"
+#include "Primitive.hpp"

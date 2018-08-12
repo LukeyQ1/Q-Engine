@@ -19,7 +19,7 @@ namespace QEngine{
     public:
         Hitscan(const glm::vec2 &initalPosisition, const glm::vec2 &finalPosition);
 
-        glm::vec2* collides(Body &body);
+        bool collides(Body &body);
 
         float dist(glm::vec2& point);
 
