@@ -7,7 +7,6 @@
 //
 
 #include "Collision.hpp"
-#include <iostream>
 
 using namespace QEngine;
 
@@ -107,7 +106,7 @@ bool Collision::AABB_LINE(const glm::vec2& initialPosition, const glm::vec2 &fin
      glm::vec2 delta = finalPosition - initialPosition;
 
      float t0 = 0.0f, t1 = 1.0f;
-     float p,q,r;
+     float p = 0.0f, q = 0.0f, r = 0.0f;
 
      for(int edge = 0; edge < 4; edge++) {   // Left, Right, Bottom, Top
          if(edge == 0){  p = -delta.x;    q = -(edgeLeft-initialPosition.x);  }
@@ -127,4 +126,32 @@ bool Collision::AABB_LINE(const glm::vec2& initialPosition, const glm::vec2 &fin
      }
      point = glm::vec2(initialPosition + t0*delta);
      return true;
+}
+
+bool Collision::CIRCLE_LINE(const glm::vec2& initialPosition, const glm::vec2 &finalPosition, const Collider &A){
+
+    glm::vec2 dir = finalPosition - initialPosition;
+    glm::vec2 dist = initialPosition - A.getCenter();
+
+    float a = glm::dot(dir, dir);
+    float b = 2*glm::dot(dist, dir);
+    float c = glm::dot(dist, dist) - A.getMinDist().x*A.getMinDist().x;
+
+    float discriminant = b*b - 4*a*c;
+    if( !(discriminant < 0) ){
+        discriminant = std::sqrt( discriminant );
+
+        float t0 = (-b - discriminant)/(2*a);
+        float t1 = (-b + discriminant)/(2*a);
+
+        if(t0 >= 0 && t0 <= 1){
+            point = glm::vec2(initialPosition + t0*dir);
+            return true;
+        }
+        if(t1 >= 0 && t1 <= 1){
+            point = glm::vec2(initialPosition + t1*dir);
+            return true;
+        }
+    }
+  return false;
 }

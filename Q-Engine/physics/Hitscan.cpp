@@ -17,7 +17,12 @@ Hitscan::Hitscan(const glm::vec2 &initalPosisition, const glm::vec2 &finalPositi
 bool Hitscan::collides(Body &body){
     bool collide = false;
     for(int i = 0; i < body.colliderList_.size(); i++ ){
-        collide = Collision::AABB_LINE(initial_, final_, *body.colliderList_[i]); // Collider type?
+        
+        if(body.colliderList_[i]->type_ == AABB){
+            collide = Collision::AABB_LINE(initial_, final_, *body.colliderList_[i]);
+        }else{
+            collide = Collision::CIRCLE_LINE(initial_, final_, *body.colliderList_[i]);
+        }
         if(collide){
             return collide;   // check closest collider?
         }

@@ -9,7 +9,6 @@
 #pragma once
 
 #include "Font.hpp"
-#include "FontManager.hpp"
 #include "Sprite.hpp"
 #include "SpriteGroup.hpp"
 

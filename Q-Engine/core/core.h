@@ -19,9 +19,11 @@
 #include "IOManager.hpp"
 #include "ResourceManager.hpp"
 #include "AudioManager.hpp"
+#include "FontManager.hpp"
 
 #include "Camera.hpp"
 #include "Timer.hpp"
+#include "MainGame.hpp"
 
 using namespace QEngine;
 

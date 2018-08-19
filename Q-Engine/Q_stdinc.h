@@ -23,3 +23,4 @@
 #include <cmath>
 #include <algorithm>
 #include <cstdlib>
+#include <vector>

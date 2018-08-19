@@ -8,7 +8,6 @@
 
 #include "Collider.hpp"
 #include "Collision.hpp"
-#include <iostream>
 
 using namespace QEngine;
 

@@ -8,6 +8,7 @@
 
 #pragma once
 
+#include "Q_stdinc.h"
 #include "Collider.hpp"
 
 // REVISIT: Needs improving
