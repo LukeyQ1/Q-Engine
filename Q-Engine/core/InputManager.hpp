@@ -19,26 +19,20 @@ namespace QEngine{
             InputManager();
             ~InputManager();
 
-
             static void update();
 
             static void pressKey(unsigned int keyID);
             static void releaseKey(unsigned int keyID);
 
-            //Held Down
-            static bool isKeyDown(keyCode keyID);
-            //Single Press
-            static bool isKeyPressed(keyCode keyID);
+            static bool isKeyDown(keyCode keyID);       // Held Down
+            static bool isKeyPressed(keyCode keyID);    // Single Press
 
             static void setMouseScroll(int x, int y);
             static void setMouseState();
 
-            //false if not moving
             static glm::vec2 getMousePos();
-            static bool getMousePos(int& x, int& y);
-            //false if no scroll
             static glm::vec2 getMouseScroll();
-            static bool getMouseScroll(int& x, int &y);
+            static bool getMouseState();
 
         private:
             static std::unordered_map<unsigned int, bool> keyMap_;

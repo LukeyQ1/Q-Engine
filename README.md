@@ -8,8 +8,14 @@ The essentials for the engine were built over the first 3 weeks. After that I ha
 
 
 ## Example Games
-I created several small games during development to help which also help test parts of the engine. They also helped me decide what to work on next.
-Coming Soon - More Details + Repo
+I created several small games during development to help which also help test parts of the engine. They also helped me decide what to work on next. Coming Soon - Pics + Repo
+
+### Space Game
+
+### Topdown Shooter
+
+### Physics Playground
+
 
 ## Using the Engine
 
@@ -31,7 +37,7 @@ After Initialization these files are never used directly, only via other classes
 
 
 #### Miscellaneous
-- Camera - Convert to and from world and screen coordinates and set render scale
+- Camera - Convert to and from world and screen coordinates and set render scale. Perform camera culling to reduce textures rendered.
 - Timer - FPS Counter and functions for timestep. Also includes multiple purpose timer class
 - MainGame - Virtual class provides structure for a game. Game inherits and overrides virtual functions, can be run simply with `run()`
 

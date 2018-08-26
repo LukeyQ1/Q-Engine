@@ -28,29 +28,24 @@ void Camera::init(int screenWidth, int screenHeight){
 }
 
 glm::vec2 Camera::screenToWorld(glm::vec2 screenCoords){
-    screenCoords -= glm::vec2 (screenWidth_/2, screenHeight_/2);  // Center Screen
-    screenCoords /= scale_;                                      // Scale
-    screenCoords += position_;                                   // Move to Camera
+    screenCoords -= glm::vec2 (screenWidth_/2, screenHeight_/2);    // Center Screen
+    screenCoords /= scale_;                                         // Scale
+    screenCoords += position_;                                      // Move to Camera
     return screenCoords;
-}
-void Camera::screenToWorld(int& x, int& y){
-    glm::vec2 newCoords(x, y);
-    newCoords = screenToWorld(newCoords);
-    x = newCoords.x;
-    y = newCoords.y;
 }
 
 glm::vec2 Camera::worldToScreen(glm::vec2 worldCoords){
-    worldCoords -= position_;                                   // Move to Camera
-    worldCoords *= scale_;                                      // Scale
-    worldCoords += glm::vec2 (screenWidth_/2, screenHeight_/2);  // Center Screen
+    worldCoords -= position_;                                       // Move to Camera
+    worldCoords *= scale_;                                          // Scale
+    worldCoords += glm::vec2 (screenWidth_/2, screenHeight_/2);     // Center Screen
     return worldCoords;
 }
-void Camera::worldToScreen(int& x, int& y){
-    glm::vec2 newCoords(x, y);
-    newCoords = worldToScreen(newCoords);
-    x = newCoords.x;
-    y = newCoords.y;
+
+bool Camera::inView(const glm::vec2& position, const glm::vec2& size){
+    return ((position.x >= 0 && position.x <= screenWidth_) && (position.y >= 0 && position.y <= screenHeight_)) ||
+    ((position.x + size.x >= 0 && position.x + size.x <= screenWidth_) && (position.y >= 0 && position.y <= screenHeight_)) ||
+    ((position.x >= 0 && position.x <= screenWidth_) && (position.y + size.y >= 0 && position.y + size.y <= screenHeight_)) ||
+    ((position.x + size.x >= 0 && position.x + size.x <= screenWidth_) && (position.y + size.y >= 0 && position.y  + size.y <= screenHeight_));
 }
 
 void Camera::moveCamera(const glm::vec2& translate){

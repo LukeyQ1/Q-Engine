@@ -23,13 +23,13 @@ namespace QEngine{
             bool init(SDL_Texture* texture, int width, int height);
             void free();
 
-            // Set color modulation
+            // Set Color Modulation
             void setColor(Uint8 red, Uint8 green, Uint8 blue);
             void setAlpha(Uint8 alpha);
-            // Set blending
+            // Set Blending
             void setBlendMode(SDL_BlendMode blending);
 
-            // Renders texture at given point
+            // Renders Texture at Point
             void render(int x, int y, float scale = 1.0f, Rect* clip = NULL, double angle = 0.0, Point* centerRotate = NULL, SDL_RendererFlip flip = SDL_FLIP_NONE);
 
             SDL_Texture* SDL();
@@ -37,9 +37,9 @@ namespace QEngine{
             int getHeight();
 
         private:
-            SDL_Texture* sdlTexture = NULL;
-            int imgWidth = 0;
-            int imgHeight = 0;
+            SDL_Texture* sdlTexture_ = NULL;
+            int textureWidth_ = 0;
+            int textureHeight_ = 0;
     };
 
 }

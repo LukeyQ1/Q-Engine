@@ -12,6 +12,10 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 
+// REVISIT
+// Improve Camera Culling for Primitives and Textures larger then display
+// Scaling Improvements
+
 namespace QEngine{
 
     class Camera{
@@ -23,12 +27,10 @@ namespace QEngine{
             void init(int screenWidth, int screenHeight);
 
             static glm::vec2 screenToWorld(glm::vec2 screenCoords); // Mouse
-            static void screenToWorld(int& x, int& y);
 
             static glm::vec2 worldToScreen(glm::vec2 worldCoords); // Objects
-            static void worldToScreen(int& x, int& y);
 
-            // static bool inView(const glm::vec2& position, const glm::vec2& size); // Camera Culling - only render if visible
+            static bool inView(const glm::vec2& position, const glm::vec2& size); // Camera Culling
 
             void moveCamera(const glm::vec2& translate);
             void setPosition(const glm::vec2& newPosition);
