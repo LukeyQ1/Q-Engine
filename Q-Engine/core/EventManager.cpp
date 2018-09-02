@@ -12,25 +12,23 @@
 using namespace QEngine;
 
 EventManager::EventManager(){}
-
 EventManager::~EventManager(){}
-
 
 void EventManager::updateState(){
 
     while(SDL_PollEvent(&sdlEvent_) != 0){
-        //request quit
+        // Request quit
         if(sdlEvent_.type == SDL_QUIT){
             quit_ = true;
         }
-        //Keyboard
+        // Keyboard
         if(sdlEvent_.type == SDL_KEYDOWN){
             InputManager::pressKey(sdlEvent_.key.keysym.sym);
         }
         else if(sdlEvent_.type == SDL_KEYUP){
             InputManager::releaseKey(sdlEvent_.key.keysym.sym);
         }
-        //Mouse
+        // Mouse
         else if (sdlEvent_.type == SDL_MOUSEBUTTONDOWN){
             InputManager::pressKey(sdlEvent_.button.button);
         }

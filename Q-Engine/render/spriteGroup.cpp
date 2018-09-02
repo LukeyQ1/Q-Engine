@@ -13,11 +13,9 @@ using namespace QEngine;
 SpriteGroup::SpriteGroup(){}
 SpriteGroup::~SpriteGroup(){}
 
-
 void SpriteGroup::addSprite(QEngine::Sprite newSprite, int name) {
     spriteList_[name] = newSprite;
 }
-
 
 Sprite SpriteGroup::getSprite(int name) {
     return spriteList_[name];

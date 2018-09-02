@@ -1,12 +1,14 @@
 //
 //  MainGame.cpp
-//  Q-Test
+//  Q-Engine
 //
 //  Created by Luke Quinlan on 14/08/2018.
 //  Copyright © 2018 Luke Quinlan. All rights reserved.
 //
 
 #include "MainGame.hpp"
+
+using namespace QEngine;
 
 MainGame::MainGame(std::string screenName, int screenWidth, int screenHeight, float maxFps){
     SCREEN_WIDTH = screenWidth;
@@ -17,10 +19,11 @@ MainGame::MainGame(std::string screenName, int screenWidth, int screenHeight, fl
     window.init("Physics Playground", SCREEN_WIDTH, SCREEN_HEIGHT);
     renderer.init(window);
     AM.init();
-    CAM.init(SCREEN_WIDTH, SCREEN_HEIGHT);
+    CAM.init(SCREEN_WIDTH, SCREEN_HEIGHT, 1.0f);
 }
 MainGame::~MainGame(){
     RM.quit();
+    AM.quit();
     window.quit();
     renderer.quit();
     quit();
@@ -52,7 +55,7 @@ void MainGame::run(){
 
             // Render
             renderer.clear();
-            renderer.setColor(0xFF, 0xFF, 0xFF, 0xFF );
+            renderer.setColor({0xFF, 0xFF, 0xFF, 0xFF});
 
             draw();
 

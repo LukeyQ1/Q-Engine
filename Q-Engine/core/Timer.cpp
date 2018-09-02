@@ -24,42 +24,35 @@ void Timer::start(){
     started_ = true;
     paused_ = false;
 
-    //Get the current time
-    startTicks_ = SDL_GetTicks();
+    startTicks_ = SDL_GetTicks();   // Get the current time
     pausedTicks_ = 0;
 }
 void Timer::stop(){
     started_ = false;
     paused_ = false;
 
-    //Clear tick variables
-    startTicks_ = 0;
+    startTicks_ = 0;     // Clear tick variables
     pausedTicks_ = 0;
 }
 
 void Timer::pause(){
-
     if(started_ && !paused_){
 
         paused_ = true;
-        //Calculate the paused ticks
-        pausedTicks_ = SDL_GetTicks() - startTicks_;
+        pausedTicks_ = SDL_GetTicks() - startTicks_;    // Calculate the paused ticks
         startTicks_ = 0;
     }
 }
 void Timer::unpause(){
-
     if(started_ && paused_){
 
         paused_ = false;
-        //Reset the starting ticks
-        startTicks_ = SDL_GetTicks() - pausedTicks_;
+        startTicks_ = SDL_GetTicks() - pausedTicks_;    // Reset the starting ticks
         pausedTicks_ = 0;
     }
 }
 
 Uint32 Timer::getTicks(){
-    //The actual timer time
     Uint32 time = 0;
 
     if(started_){

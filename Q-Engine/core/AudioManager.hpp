@@ -19,7 +19,7 @@ namespace QEngine{
             SoundEffect(Mix_Chunk* effect);
 
             // -1 = forever; 0 = 1 play;
-            void play(int loops = 0);
+            void play(int loops = 0, bool wait = false);
             void stop();
 
         private:
@@ -28,6 +28,7 @@ namespace QEngine{
     };
 
     class Music{
+
         public:
             Music();
             Music(Mix_Music* music);
@@ -45,6 +46,7 @@ namespace QEngine{
 
 
     class AudioManager {
+
         public:
             AudioManager();
             ~AudioManager();

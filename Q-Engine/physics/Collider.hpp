@@ -12,10 +12,8 @@
 
 // REVISIT Needs Improving.
 // Abstract Collider? AABB, Circle
-// Make Line Differerent class?
-// Friend Classes?
 
-enum {
+enum ColliderType{
     AABB,
     CIRCLE
 };
@@ -25,14 +23,14 @@ namespace QEngine{
     class Collider{
 
         public:
-            Collider(int type, const glm::vec2 &position, const glm::vec2 &size = glm::vec2(0.0f));
-        
+            Collider(ColliderType type, const glm::vec2 &position, const glm::vec2 &size = glm::vec2(0.0f));
+
             friend class Body;
             friend class Hitscan;
-        
+
             glm::vec2 getCenter() const;
             glm::vec2 getMinDist() const;
-        
+
         private:
             bool collides(const Collider &collider) const;
 

@@ -25,8 +25,9 @@
 #include "Timer.hpp"
 #include "MainGame.hpp"
 
-using namespace QEngine;
+namespace QEngine{
 
-bool init();
+    bool init();
+    void quit();
 
-void quit();
+}

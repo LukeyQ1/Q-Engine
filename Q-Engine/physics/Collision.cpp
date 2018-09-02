@@ -14,7 +14,6 @@ glm::vec2 Collision::point;
 glm::vec2 Collision::depth;
 glm::vec2 Collision::direction;
 
-
 void Collision::reset(){
     point = glm::vec2(0.0f);
     depth = glm::vec2(0.0f);
@@ -44,6 +43,7 @@ bool Collision::AABB_AABB(const Collider &A, const Collider &B){
 }
 // A BOX, B Circle
 bool Collision::AABB_CIRCLE(const Collider &A, const Collider &B, bool reverse){
+    reset();
 
     float circleRadius = B.getMinDist().x;
     glm::vec2 objectDist = A.getCenter() - B.getCenter();
@@ -108,14 +108,14 @@ bool Collision::AABB_LINE(const glm::vec2& initialPosition, const glm::vec2 &fin
      float t0 = 0.0f, t1 = 1.0f;
      float p = 0.0f, q = 0.0f, r = 0.0f;
 
-     for(int edge = 0; edge < 4; edge++) {   // Left, Right, Bottom, Top
-         if(edge == 0){  p = -delta.x;    q = -(edgeLeft-initialPosition.x);  }
-         if(edge == 1){  p = delta.x;     q =  (edgeRight-initialPosition.x); }
-         if(edge == 2){  p = -delta.y;    q = -(edgeBottom-initialPosition.y);}
-         if(edge == 3){  p = delta.y;     q =  (edgeTop-initialPosition.y);   }
+     for(int edge = 0; edge < 4; edge++) {  // Left, Right, Bottom, Top
+         if(edge == 0){  p = -delta.x;    q = -(edgeLeft - initialPosition.x);  }
+         if(edge == 1){  p = delta.x;     q =  (edgeRight - initialPosition.x); }
+         if(edge == 2){  p = -delta.y;    q = -(edgeBottom - initialPosition.y);}
+         if(edge == 3){  p = delta.y;     q =  (edgeTop - initialPosition.y);   }
          r = q/p;
 
-         if(p == 0 && q < 0){ return false; }  // Parallel Line
+         if(p == 0 && q < 0){ return false; }   // Parallel Line
          if(p < 0){
              if(r > t1){ return false; }
              else if(r > t0){ t0 = r; }

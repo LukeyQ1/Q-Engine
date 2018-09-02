@@ -1,6 +1,6 @@
 //
 //  MainGame.hpp
-//  Q-Test
+//  Q-Engine
 //
 //  Created by Luke Quinlan on 14/08/2018.
 //  Copyright © 2018 Luke Quinlan. All rights reserved.
@@ -9,7 +9,7 @@
 #pragma once
 
 #include "Q_stdinc.h"
-#include "Q-Engine.h"
+#include "core.h"
 
 namespace QEngine{
 
@@ -48,7 +48,6 @@ namespace QEngine{
 
             int SCREEN_WIDTH;
             int SCREEN_HEIGHT;
-
     };
 
 }

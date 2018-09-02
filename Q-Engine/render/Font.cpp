@@ -22,7 +22,7 @@ bool Font::init(TTF_Font* font, ColorRGBA fontColor){
     return true;
 }
 void Font::free(){
-    TTF_CloseFont( sdlFont_ );
+    TTF_CloseFont(sdlFont_);
     sdlFont_ = NULL;
 }
 
@@ -46,7 +46,7 @@ void Font::render(int x, int y, std::string text){
         printf("Unable to render text surface! SDL_ttf Error: %s\n", TTF_GetError());
         return;
     }
-    // Render to screen
+    // Render to Screen
     SDL_Rect renderQuad = { x, y, width, height };
     if(textTexture != NULL){
         SDL_RenderCopy(Renderer::SDL(), textTexture, NULL, &renderQuad);

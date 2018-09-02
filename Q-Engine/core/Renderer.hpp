@@ -28,7 +28,6 @@ namespace QEngine{
             void clear();
             void update();
 
-            static void setColor(Uint8 red, Uint8 green, Uint8 blue, Uint8 alpha);
             static void setColor(ColorRGBA color);
 
             static SDL_Renderer* SDL();

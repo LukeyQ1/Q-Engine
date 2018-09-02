@@ -34,7 +34,6 @@ namespace QEngine{
 
         private:
             static void reset();
-
     };
 
 }

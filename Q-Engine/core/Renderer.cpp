@@ -10,10 +10,10 @@
 
 using namespace QEngine;
 
-SDL_Renderer* Renderer::sdlRenderer_;
-
 Renderer::Renderer(){}
 Renderer::~Renderer(){}
+
+SDL_Renderer* Renderer::sdlRenderer_;
 
 bool Renderer::init(Window window){
 
@@ -33,19 +33,15 @@ void Renderer::quit(){
 }
 
 void Renderer::clear(){
-    SDL_RenderClear(sdlRenderer_); //Clear screen
+    SDL_RenderClear(sdlRenderer_);
 }
 void Renderer::update(){
-    SDL_RenderPresent(sdlRenderer_); //Update screen
+    SDL_RenderPresent(sdlRenderer_);
 }
 
-void Renderer::setColor(Uint8 red, Uint8 green, Uint8 blue, Uint8 alpha){
-    SDL_SetRenderDrawColor(sdlRenderer_, red, green, blue, alpha);
-}
 void Renderer::setColor(ColorRGBA color){
     SDL_SetRenderDrawColor(sdlRenderer_, color.r, color.g, color.b, color.a);
 }
-
 
 SDL_Renderer* Renderer::SDL(){
     return sdlRenderer_;

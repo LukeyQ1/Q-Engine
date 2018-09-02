@@ -17,12 +17,11 @@ namespace QEngine{
     class Body{
 
         public:
-
             float FRICTION_COEFFICIENT = 30.0f;
 
             // Move to different file
             float GRAVITY = 3.0f;
-            glm::vec2 GRAVITY_DIRECTION = glm::vec2(0.0f); // Normal to Screen
+            glm::vec2 GRAVITY_DIRECTION = glm::vec2(0.0f);  // Normal to Screen
 
             friend class Hitscan;
 
@@ -41,7 +40,7 @@ namespace QEngine{
             glm::vec2 velocity_ = glm::vec2(0.0f);
 
             float mass_ = 1.0f;
-        
+
             void addCollider(Collider* collider);
 
         private:

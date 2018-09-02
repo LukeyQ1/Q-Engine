@@ -1,5 +1,7 @@
 # Q-Engine
 
+![Q-Engine](docs/Logo_Full.png)
+
 ## Introduction
 
 Q-Engine is a simple 2D Game Engine built during my spare time. It's written in C++ and makes use of the SDL2 library.  
@@ -8,14 +10,23 @@ The essentials for the engine were built over the first 3 weeks. After that I ha
 
 
 ## Example Games
-I created several small games during development to help which also help test parts of the engine. They also helped me decide what to work on next. Coming Soon - Pics + Repo
+I created several small games during development to help which also help test parts of the engine. They also helped me decide what to work on next.
 
 ### Space Game
+<img src="docs/Space_Game.png" width="250">
+
+This was created to help me get started with the project.
 
 ### Topdown Shooter
+<img src="docs/Topdown_Shooter.png" width="250">
+
+This helped test font printing, audio and animated sprites. The player has multiple guns (Pistol, SMG, Shotgun and Sniper) with different stats such as reload time and damage. There are enemies that can be shot and boxes that respond to bullets depending on the damage values. In time I hope to make this a full game.
+
 
 ### Physics Playground
+<img src="docs/Physics_Playground.gif" width="250">
 
+I created this game to help create the physics engine and to test collision response, friction, gravity etc.
 
 ## Using the Engine
 

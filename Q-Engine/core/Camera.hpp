@@ -24,7 +24,7 @@ namespace QEngine{
             Camera();
             ~Camera();
 
-            void init(int screenWidth, int screenHeight);
+            void init(int screenWidth, int screenHeight, float scale = 1.0f);
 
             static glm::vec2 screenToWorld(glm::vec2 screenCoords); // Mouse
 

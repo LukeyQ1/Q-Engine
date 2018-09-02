@@ -23,7 +23,6 @@ namespace QEngine{
             void addSprite(Sprite newSprite, int name);
 
         private:
-        std::unordered_map<int, Sprite> spriteList_;
-
+            std::unordered_map<int, Sprite> spriteList_;
     };
 }

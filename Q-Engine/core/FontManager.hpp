@@ -16,18 +16,18 @@ namespace QEngine{
 
     class FontManager{
 
-    public:
-        FontManager();
-        ~FontManager();
+        public:
+            FontManager();
+            ~FontManager();
 
-        void quit();
+            void quit();
 
-        bool loadFont(const std::string& path, int fontSize = 18, ColorRGBA fontColor = {0xFF, 0xFF, 0xFF});
+            bool loadFont(const std::string& path, int fontSize = 18, ColorRGBA fontColor = {0xFF, 0xFF, 0xFF});
 
-        static Font* getFont(const std::string& path);
+            static Font* getFont(const std::string& path);
 
-    private:
-        static std::unordered_map<std::string, Font> fontMap_;
+        private:
+            static std::unordered_map<std::string, Font> fontMap_;
     };
 
 }

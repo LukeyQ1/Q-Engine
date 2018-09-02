@@ -28,7 +28,6 @@ namespace QEngine{
 
         private:
             static std::unordered_map<std::string, Texture> textureMap_;
-
     };
 
 }

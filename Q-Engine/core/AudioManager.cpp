@@ -16,14 +16,13 @@ using namespace QEngine;
 SoundEffect::SoundEffect(){}
 SoundEffect::SoundEffect(Mix_Chunk* effect) : effect_(effect){}
 
-
-void SoundEffect::play(int loops){
+void SoundEffect::play(int loops, bool wait){
     if(channel_ == -1){ // Only play once
         channel_ = Mix_PlayChannel(-1, effect_, loops);
     }else{
-       // if(!Mix_Playing(channel_)){ // Don't restart sound effect if still playing
+       if(!wait || !Mix_Playing(channel_)){ // Don't restart sound effect if still playing
             Mix_PlayChannel(channel_, effect_, loops);
-       // }
+       }
     }
 }
 void SoundEffect::stop(){
@@ -38,7 +37,6 @@ Music::Music(Mix_Music* music) : music_(music){}
 void Music::play(int loops){
     Mix_PlayMusic(music_, loops);
 }
-
 void Music::pause(){
     Mix_PauseMusic();
 }

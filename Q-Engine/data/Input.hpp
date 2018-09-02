@@ -1,5 +1,5 @@
 //
-//  input.hpp
+//  Input.hpp
 //  Q-Engine
 //
 //  Created by Luke Quinlan on 10/08/2018.

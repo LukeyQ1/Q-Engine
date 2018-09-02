@@ -15,7 +15,6 @@ FontManager::~FontManager(){}
 
 std::unordered_map<std::string, Font> FontManager::fontMap_;
 
-
 void FontManager::quit(){
     for (auto it = fontMap_.begin(); it != fontMap_.end(); it++){
         it->second.free();
@@ -35,8 +34,7 @@ Font* FontManager::getFont(const std::string& path){
     auto it = fontMap_.find(path);
 
     if (it == fontMap_.end()){
-        // loadFont(path);
-        // return &fontMap_[path];
+        printf("Unable to load font %s!\n", path.c_str());
         return NULL;
     }
     return &it->second;

@@ -14,20 +14,19 @@ namespace QEngine{
 
     class EventManager{
 
-    public:
-        EventManager();
-        ~EventManager();
+        public:
+            EventManager();
+            ~EventManager();
 
-        void updateState();
+            void updateState();
 
-        bool checkQuit();
+            bool checkQuit();
 
-        SDL_Event SDL();
+            SDL_Event SDL();
 
-    private:
-        SDL_Event sdlEvent_;
-        bool quit_ = false;
-
+        private:
+            SDL_Event sdlEvent_;
+            bool quit_ = false;
     };
 
 }

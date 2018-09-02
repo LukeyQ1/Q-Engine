@@ -10,15 +10,13 @@
 
 using namespace QEngine;
 
-
 ResourceManager::ResourceManager(){}
 ResourceManager::~ResourceManager(){}
 
 std::unordered_map<std::string, Texture> ResourceManager::textureMap_;
 
-
 void ResourceManager::quit(){
-    for (auto it = textureMap_.begin(); it != textureMap_.end(); it++){
+    for(auto it = textureMap_.begin(); it != textureMap_.end(); it++){
         it->second.free();
     }
 }
@@ -33,9 +31,8 @@ bool ResourceManager::loadTexture(const std::string& path, ColorRGBA colorKey){
 Texture* ResourceManager::getTexture(const std::string& path){
     auto it = textureMap_.find(path);
 
-    if (it == textureMap_.end()){
-        // loadTexture(path);
-        // return &textureMap_[path];
+    if(it == textureMap_.end()){
+        printf("Unable to load texture %s!\n", path.c_str());
         return NULL;
     }
     return &it->second;

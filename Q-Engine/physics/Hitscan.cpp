@@ -1,6 +1,6 @@
 //
 //  Hitscan.cpp
-//  Q-Test
+//  Q-Engine
 //
 //  Created by Luke Quinlan on 03/08/2018.
 //  Copyright © 2018 Luke Quinlan. All rights reserved.
@@ -8,7 +8,6 @@
 
 #include "Hitscan.hpp"
 #include "Collision.hpp"
-
 
 using namespace QEngine;
 
